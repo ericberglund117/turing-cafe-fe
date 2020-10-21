@@ -40,4 +40,28 @@ describe('Make a Reservation', () => {
     fireEvent.change(timeInput);
     fireEvent.change(numberInput);
   })
+
+  it('should clear the input fields when a user makes a reservation', () => {
+    render(<ReservationForm addReservation={ mockAddReservation } />);
+
+    const makeReservationButton = screen.getByRole('button', { name: 'Make Reservation'})
+
+    expect(makeReservationButton).toBeInTheDocument();
+    fireEvent.click(makeReservationButton);
+
+    const nameInput = screen.getByPlaceholderText('Name');
+    const dateInput = screen.getByPlaceholderText('Date(mm/dd)');
+    const timeInput = screen.getByPlaceholderText('Time');
+    const numberInput = screen.getByPlaceholderText('Number of guests');
+
+    nameInput.value = '';
+    dateInput.value = '';
+    timeInput.value = '';
+    numberInput.value = '';
+
+    fireEvent.change(nameInput);
+    fireEvent.change(dateInput);
+    fireEvent.change(timeInput);
+    fireEvent.change(numberInput);
+  })
 })
