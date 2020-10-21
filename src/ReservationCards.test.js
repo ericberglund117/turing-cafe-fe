@@ -19,6 +19,7 @@ describe('Reservation Cards', () => {
     const date = screen.getByText('10/31')
     const time = screen.getByText('12:00')
     const number = screen.getByText('Number of Guests: 1')
+    
     expect(name).toBeInTheDocument();
     expect(date).toBeInTheDocument();
     expect(time).toBeInTheDocument();

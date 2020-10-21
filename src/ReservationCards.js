@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ReservationCards = (props) => {
   return props.reservations.map ((res, index) => {
     return (
-      <section className='card'>
+      <section className='card' key={index}>
         <h2>{res.name}</h2>
         <h3>{res.date}</h3>
         <h3>{res.time}</h3>
